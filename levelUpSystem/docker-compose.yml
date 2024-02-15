@@ -31,7 +31,9 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: levelUp
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_PASSWORD: root
+      MYSQL_USER: samira
     volumes:
       - ./.docker/mysql/dbdata:/var/lib/mysql
     ports:

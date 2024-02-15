@@ -3,10 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct(
+        protected ProductService $service
+    )
+    {
+
+    }
+
     public function index(){}
     public function show(){}
     public function create(){}

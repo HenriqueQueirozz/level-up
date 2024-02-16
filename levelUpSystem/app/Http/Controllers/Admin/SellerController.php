@@ -18,7 +18,7 @@ class SellerController extends Controller
     public function index()
     {
         $sellers = $this->service->getAll();
-        return view('seller/index', compact('sellers'));
+        return view('admin/seller/index', compact('sellers'));
     }
 
     public function show(string|int $id)
@@ -27,12 +27,12 @@ class SellerController extends Controller
         if (!$seller) {
             return redirect()->route('seller.index');
         }
-        return view('seller/show', compact('seller'));
+        return view('admin/seller/show', compact('seller'));
     }
 
     public function create()
     {
-        return view('seller/create');
+        return view('admin/seller/create');
     }
 
     public function store(StoreUpdateSellerRequest $request)
@@ -48,7 +48,7 @@ class SellerController extends Controller
         if (!$seller) {
             return redirect()->route('seller.index');
         }
-        return view('seller/edit', compact('seller'));
+        return view('admin/seller/edit', compact('seller'));
     }
 
     public function update(StoreUpdateSellerRequest $request, string|int $id)

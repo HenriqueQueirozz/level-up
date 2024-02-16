@@ -10,7 +10,7 @@ Route::get('/seller/create', [SellerController::class, 'create'])->name('seller.
 Route::get('/seller/{id}', [SellerController::class, 'show'])->name('seller.show');
 Route::post('/seller', [SellerController::class, 'store'])->name('seller.store');
 Route::get('/seller/{id}/edit', [SellerController::class, 'edit'])->name('seller.edit');
-Route::put('/seller', [SellerController::class, 'update'])->name('seller.update');
+Route::put('/seller/{id}', [SellerController::class, 'update'])->name('seller.update');
 Route::delete('/seller/{id}/destroy', [SellerController::class, 'destroy'])->name('seller.destroy');
 
 Route::get('/sale', [SaleController::class, 'index'])->name('sale.index');

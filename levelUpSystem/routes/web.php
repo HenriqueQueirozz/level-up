@@ -18,7 +18,7 @@ Route::get('/sale/create', [SaleController::class, 'create'])->name('sale.create
 Route::get('/sale/{id}', [SaleController::class, 'show'])->name('sale.show');
 Route::post('/sale', [SaleController::class, 'store'])->name('sale.store');
 Route::get('/sale/{id}/edit', [SaleController::class, 'edit'])->name('sale.edit');
-Route::put('/sale', [SaleController::class, 'update'])->name('sale.update');
+Route::put('/sale/{id}', [SaleController::class, 'update'])->name('sale.update');
 Route::delete('/sale/{id}/destroy', [SaleController::class, 'destroy'])->name('sale.destroy');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');

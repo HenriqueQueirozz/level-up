@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Presenters\ProductPresenter;
+use App\DTO\CreateProductDTO;
 
 class ProductService
 {
@@ -26,7 +27,7 @@ class ProductService
         return new ProductPresenter(collect([$oneProduct]));
     }
 
-    public function store(array $data)
+    public function store(CreateProductDTO $data)
     {
         $this->product::create($data);
     }

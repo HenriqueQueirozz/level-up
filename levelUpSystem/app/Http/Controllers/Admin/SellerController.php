@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateSellerRequest;
 use App\Services\SellerService;
+use App\DTO\CreateSellerDTO;
 use Illuminate\Http\Request;
 
 class SellerController extends Controller
@@ -37,8 +38,7 @@ class SellerController extends Controller
 
     public function store(StoreUpdateSellerRequest $request)
     {
-        $validated = $request->validated();
-        $this->service->store($validated);
+        $this->service->store(CreateSellerDTO::make($request));
         return redirect()->route('seller.index');
     }
 

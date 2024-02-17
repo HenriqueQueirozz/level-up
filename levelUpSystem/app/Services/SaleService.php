@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Sale;
 use App\Presenters\SalePresenter;
+use App\DTO\CreateSaleDTO;
 
 class SaleService
 {
@@ -26,7 +27,7 @@ class SaleService
         return new SalePresenter(collect([$oneSale]));
     }
 
-    public function store(array $data)
+    public function store(CreateSaleDTO $data)
     {
         $this->sale::create($data);   
     }

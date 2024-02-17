@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateProductRequest;
 use App\Services\ProductService;
+use App\DTO\CreateProductDTO;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -38,8 +39,7 @@ class ProductController extends Controller
 
     public function store(StoreUpdateProductRequest $request)
     {
-        $validated = $request->validated();
-        $this->service->store($validated);
+        $this->service->store(CreateProductDTO::make($request));
         return redirect()->route('product.index');
     }
 

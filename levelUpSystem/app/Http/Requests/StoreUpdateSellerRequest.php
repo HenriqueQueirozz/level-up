@@ -40,7 +40,7 @@ class StoreUpdateSellerRequest extends FormRequest
         return [
             "name.required" => "O campo nome é obrigatório.",
             "email.required" => "O campo e-mail é obrigatório.",
-            "email.unique" => "E-mail indisponível, por favor informe outro.",
+            "email.unique" => "E-mail indisponível, por favor informe outro e-mail.",
         ];
     }
 }

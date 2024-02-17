@@ -3,11 +3,10 @@
 namespace App\Services;
 
 use App\Models\Sale;
+use App\Presenters\SalePresenter;
 
 class SaleService
 {
-    private $comissionPercentage = 0.085;
-
     public function __construct(
         protected Sale $sale
     )
@@ -17,19 +16,17 @@ class SaleService
     public function getAll()
     {
         $sales = $this->sale::all();
-        foreach ($sales as $sale) {
-            $sale->commission = $this->calcComission($sale);
-        }
-        return $sales;
+        $presenter = new SalePresenter($sales);
+        return $presenter->items();
     }
 
-    public function getOne(string|int $id): Sale|null
+    public function getOne(string|int $id)
     {
         if (!$oneSale = $this->sale::find($id)) {
             return null;
         }
-        $oneSale->commission = $this->calcComission($oneSale);
-        return $oneSale;
+        $presenter = new SalePresenter(collect([$oneSale]));
+        return $presenter->item();
     }
 
     public function store(array $data)
@@ -49,9 +46,5 @@ class SaleService
     public function destroy(string|int $id): void
     {
         $this->sale->destroy($id);
-    }
-
-    public function calcComission(Sale $sale){
-        return $sale->value * $this->comissionPercentage;
     }
 }

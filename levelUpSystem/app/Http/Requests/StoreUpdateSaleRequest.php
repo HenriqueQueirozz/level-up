@@ -37,8 +37,8 @@ class StoreUpdateSaleRequest extends FormRequest
             "seller_id.required" => "É necessário informar o vendedor responsável pela venda.",
             "value.required" => "O campo valor da venda é obrigatório.",
             "value.numeric" => "Valor da venda inválido.",
-            "date.required" => "O campo data de venda é obrigatório.",
-            "date.date" => "Data de venda inválido.",
+            "date.required" => "O campo data da venda é obrigatório.",
+            "date.date" => "Data da venda inválido.",
         ];
     }
 }

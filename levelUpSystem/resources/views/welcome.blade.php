@@ -9,7 +9,7 @@
     </head>
     <body>
         <section id="system-apresentation">
-            <img src="level-up.png" alt="Level Up logo">
+            <img src="/assets/level-up.png" alt="Level Up logo">
             <a href="{{ route('seller.index') }}"><button>Acessar Sistema</button></a>
         </section>
     </body>

@@ -1,9 +1,9 @@
 @extends('layouts.main')
 @section('title', 'Level Up - Vendedores')
 @section('content')
-    <section class="title-section">
+    <section class="title-section-main">
         <h2 class="page-title">Vendedores</h2>
-        <button class="btn btn-primary" onclick="createSeller()"><ion-icon name="add-outline"></ion-icon>Novo vendedor</button>
+        <a href="{{ route('seller.create') }}"><button class="btn btn-primary"><ion-icon name="add-outline"></ion-icon>Novo vendedor</button></a>
     </section>
     <section class="data-section">
         <table class="data-table">
@@ -21,27 +21,12 @@
                     <td class="text-center">{{ $seller->id }}</td>
                     <td class="text-center">{{ $seller->name }}</td>
                     <td class="text-center">{{ $seller->email }}</td>
-                    <td class="col-icon"><button class="btn btn-blue" onclick="showSeller()"><ion-icon name="search-outline"></ion-icon></button></td>
-                    <td class="col-icon"><button class="btn btn-yellow" onclick="editSeller()"><ion-icon name="color-wand-outline"></ion-icon></button></td>
+                    <td class="col-icon"><a href="{{ route('seller.show', $seller->id) }}"><button class="btn btn-blue"><ion-icon name="search-outline"></ion-icon></button></a></td>
+                    <td class="col-icon"><a href="{{ route('seller.edit', $seller->id) }}"><button class="btn btn-yellow"><ion-icon name="color-wand-outline"></ion-icon></button></td>
                     <td class="col-icon"><button class="btn btn-red" onclick="deleteSeller()"><ion-icon name="trash-outline"></ion-icon></button></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </section>
-
-    <dialog class="modal-dialog">
-        <section class="dialog-header">
-            <h2>Adicionar vendedor</h2>
-            <button class="btn" onclick="closeDialog()"><ion-icon name="close-outline"></ion-icon></button>
-        </section>
-        <!-- <h2>Atualizar vendedor</h2> -->
-        <!-- <h2>Atualizar vendedor</h2> -->
-        <form action="{{ route('seller.store') }}" method="POST">
-            @csrf
-            <input type="text" placeholder="Nome" name="name">
-            <input type="email" placeholder="E-mail" name="email">
-            <button type="submit">Confirmar</button>
-        </form>
-    </dialog>
 @endsection

@@ -13,7 +13,6 @@
                 <ul>
                     <li><a href="{{ route('seller.index') }}">Vendedores</a></li>
                     <li><a href="{{ route('sale.index') }}">Vendas</a></li>
-                    <li><a href="{{ route('product.index') }}">Produtos</a></li>
                 </ul>
             </nav>
         </header>

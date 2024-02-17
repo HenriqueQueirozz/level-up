@@ -1,0 +1,27 @@
+#system-apresentation{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+#system-apresentation img{
+    width: 40%;
+    margin: 0 auto;
+}
+
+#system-apresentation a{
+    margin: 0 auto;
+    width: 25%;
+    padding: 1%;
+}
+
+#system-apresentation button{
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    background-color: #323038;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+}

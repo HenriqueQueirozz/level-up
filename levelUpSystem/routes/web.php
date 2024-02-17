@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{SellerController, SaleController, ProductController};
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {return view('welcome');})->name('welcome');
 
 Route::get('/seller', [SellerController::class, 'index'])->name('seller.index');
 Route::get('/seller/create', [SellerController::class, 'create'])->name('seller.create');

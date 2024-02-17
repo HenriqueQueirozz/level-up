@@ -1,0 +1,37 @@
+#navegation-bar{
+    background-color: var(--primary-color);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 20px var(--third-color);
+}
+
+#navegation-bar img{
+    width: 6%;
+}
+
+#navegation-bar ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 30%;
+}
+
+#navegation-bar ul li{
+    height: fit-content;
+    margin: auto 0;
+}
+
+#navegation-bar ul li a{
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+body{
+    background-color: var(--secondary-color);
+}
+
+main{
+    padding: 3% 5% 0 5%;
+}

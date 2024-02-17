@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Merriweather", serif;
+}
+
+:root {
+    --primary-color: #005AAA;
+    --secondary-color: #F0EFF4;
+    --third-color: #323038;
+}
+
+body{
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+.title-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-title{
+    font-size: 2em;
+    width: 40%;
+    border-bottom: 2px solid black;
+}
+
+.data-section{
+    margin-top: 5%;
+}
+
+.data-table{
+    border-collapse: collapse;
+    width: 100%;
+    overflow:hidden;
+    -webkit-border-radius: 15px;
+       -moz-border-radius: 15px;
+            border-radius: 15px;
+}
+
+.data-table thead tr {
+    background-color: #2F3140;
+    color: var(--secondary-color);
+    text-align: center; 
+}
+
+.data-table th {
+    padding: 0.8% 0;
+    font-size: 1.2em; 
+}
+
+.data-table td {
+    padding: 1% 2%;
+}
+
+.col-id{
+    width: 10%;
+}
+
+.col-name, .col-email{
+    width: 40%;
+}
+
+.data-table .col-icon{
+    padding: 0;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.btn{
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    padding: 10px 15px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: between;
+}
+
+.btn-primary{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn-red{
+    background-color: #EF1C1C;
+}
+
+.btn-yellow{
+    background-color: #FBDF40;
+}
+
+.btn-blue{
+    background-color: #00B8D1;
+}
+
+.modal-dialog{
+    padding: 2% 3%;
+    width: 35vw;
+    height: 70vh;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.dialog-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-dialog form{
+    display: flex;
+    flex-direction: column;
+}
+
+::backdrop {
+    background-color: black;
+    opacity: 0.7;
+}
+  

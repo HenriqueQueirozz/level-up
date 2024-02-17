@@ -18,13 +18,13 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = $this->service->getAll();
+        $products = $this->service->getAll()->items();
         return view('admin/product/index', compact('products'));
     }
 
     public function show(string|int $id)
     {
-        $product = $this->service->getOne($id);
+        $product = $this->service->getOne($id)->item();
         if (!$product) {
             return redirect()->route('product.index');
         }
@@ -45,7 +45,7 @@ class ProductController extends Controller
 
     public function edit(string|int $id)
     {
-        $product = $this->service->getOne($id);
+        $product = $this->service->getOne($id)->item();
         if (!$product) {
             return redirect()->route('product.index');
         }

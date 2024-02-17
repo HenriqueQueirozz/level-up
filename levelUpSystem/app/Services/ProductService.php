@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Product;
+use App\Presenters\ProductPresenter;
 
 class ProductService
 {
@@ -14,7 +15,7 @@ class ProductService
 
     public function getAll()
     {
-        return $this->product::all();
+        return new ProductPresenter($this->product::all());
     }
 
     public function getOne(string|int $id)
@@ -22,7 +23,7 @@ class ProductService
         if (!$oneProduct = $this->product::find($id)) {
             return null;
         }
-        return $oneProduct;
+        return new ProductPresenter(collect([$oneProduct]));
     }
 
     public function store(array $data)

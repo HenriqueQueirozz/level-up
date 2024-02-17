@@ -17,13 +17,13 @@ class SaleController extends Controller
 
     public function index()
     {
-        $sales = $this->service->getAll();
+        $sales = $this->service->getAll()->items();
         return view('admin/sale/index', compact('sales'));
     }
 
     public function show(string|int $id)
     {
-        $sale = $this->service->getOne($id);
+        $sale = $this->service->getOne($id)->item();
         if (!$sale) {
             return redirect()->route('sale.index');
         }
@@ -44,7 +44,7 @@ class SaleController extends Controller
 
     public function edit(string|int $id)
     {
-        $sale = $this->service->getOne($id);
+        $sale = $this->service->getOne($id)->item();
         if (!$sale) {
             return redirect()->route('sale.index');
         }

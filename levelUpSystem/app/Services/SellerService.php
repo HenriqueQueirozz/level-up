@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Seller;
+use App\Presenters\SellerPresenter;
 
 class SellerService
 {
@@ -14,15 +15,15 @@ class SellerService
 
     public function getAll()
     {
-        return $this->seller::All(); 
+        return new SellerPresenter($this->seller::All()); 
     }
 
-    public function getOne(string|int $id): Seller|null
+    public function getOne(string|int $id)
     {
         if (!$oneSeller = $this->seller::find($id)) {
             return null;
         }
-        return $oneSeller;
+        return new SellerPresenter(collect([$oneSeller]));
     }
 
     public function store(array $data): void

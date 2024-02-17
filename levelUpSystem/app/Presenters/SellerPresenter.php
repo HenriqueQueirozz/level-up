@@ -5,10 +5,9 @@ namespace App\Presenters;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-class SalePresenter implements PresenterInterface
+class SellerPresenter implements PresenterInterface
 {
     private $items;
-    private $comissionPercentage = 0.085;
 
     public function __construct(
         protected Collection $collection
@@ -32,17 +31,9 @@ class SalePresenter implements PresenterInterface
         return count($this->collection);
     }
 
-    public function calcComission($sale)
-    {
-        return $sale->value * $this->comissionPercentage;
-    }
-
     private function resolveItems(): Collection
     {
         foreach ($this->collection as $item) {
-            $item->commission = number_format($this->calcComission($item), 2, ',', '.');
-            $item->value = number_format($item->value, 2, ',', '.');
-            $item->date = date_format(date_create($item->date), "d/m/Y");
         }
         return $this->collection;
     }

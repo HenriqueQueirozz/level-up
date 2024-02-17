@@ -15,9 +15,7 @@ class SaleService
 
     public function getAll()
     {
-        $sales = $this->sale::all();
-        $presenter = new SalePresenter($sales);
-        return $presenter->items();
+        return new SalePresenter($this->sale::all());
     }
 
     public function getOne(string|int $id)
@@ -25,8 +23,7 @@ class SaleService
         if (!$oneSale = $this->sale::find($id)) {
             return null;
         }
-        $presenter = new SalePresenter(collect([$oneSale]));
-        return $presenter->item();
+        return new SalePresenter(collect([$oneSale]));
     }
 
     public function store(array $data)

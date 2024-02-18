@@ -6,7 +6,7 @@
         <h2 class="page-title">Vendedor</h2>
     </section>
     <section class="form-section">
-        <p>Nome: {{ $seller->name }}</p>
-        <p>E-mail: {{ $seller->email }}</p>
+        <p><strong>Nome:</strong> {{ $seller->name }}</p>
+        <p><strong>E-mail:</strong> {{ $seller->email }}</p>
     </section>
 @endsection

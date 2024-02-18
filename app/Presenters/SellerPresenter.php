@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SellerPresenter implements PresenterInterface
 {
-    private $items;
+    public $items;
 
     public function __construct(
         protected Collection $collection
@@ -33,8 +33,6 @@ class SellerPresenter implements PresenterInterface
 
     private function resolveItems(): Collection
     {
-        foreach ($this->collection as $item) {
-        }
         return $this->collection;
     }
 }

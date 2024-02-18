@@ -24,10 +24,11 @@ class SellerController extends Controller
 
     public function show(string|int $id)
     {
-        $seller = $this->service->getOne($id)->item();
+        $seller = $this->service->getOne($id);
         if (!$seller) {
             return redirect()->route('seller.index');
         }
+        $seller = $seller->item();
         return view('admin/seller/show', compact('seller'));
     }
 
@@ -44,17 +45,17 @@ class SellerController extends Controller
 
     public function edit(string|int $id)
     {
-        $seller = $this->service->getOne($id)->item();
+        $seller = $this->service->getOne($id);
         if (!$seller) {
             return redirect()->route('seller.index');
         }
+        $seller = $seller->item();
         return view('admin/seller/edit', compact('seller'));
     }
 
     public function update(StoreUpdateSellerRequest $request, string|int $id)
     {
-        $validated = $request->validated();
-        $seller = $this->service->update($validated, $id);
+        $seller = $this->service->update(CreateSellerDTO::make($request), $id);
         if (!$seller) {
             return redirect()->back();
         }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SalePresenter implements PresenterInterface
 {
-    private $items;
+    public $items;
     private $comissionPercentage = 0.085;
 
     public function __construct(
@@ -27,12 +27,22 @@ class SalePresenter implements PresenterInterface
         return $this->items[0];
     }
 
+    public function formatedItems(): Collection
+    {
+        return $this->resolveFormatedItems();
+    }
+
+    public function formatedItem(): Model
+    {
+        return $this->resolveFormatedItems()[0];
+    }
+
     public function total(): int
     {
         return count($this->collection);
     }
 
-    public function calcComission($sale)
+    public function calcComission($sale): string|int
     {
         return $sale->value * $this->comissionPercentage;
     }
@@ -40,10 +50,28 @@ class SalePresenter implements PresenterInterface
     private function resolveItems(): Collection
     {
         foreach ($this->collection as $item) {
-            $item->commission = number_format($this->calcComission($item), 2, ',', '.');
+            $item->commission = $this->calcComission($item);
+        }
+        return $this->collection;
+    }
+
+    private function resolveFormatedItems(): Collection
+    {
+        $formatedItems = $this->items;
+        foreach ($formatedItems as $item) {
+            $item->commission = number_format($item->commission, 2, ',', '.');
             $item->value = number_format($item->value, 2, ',', '.');
             $item->date = date_format(date_create($item->date), "d/m/Y");
         }
-        return $this->collection;
+        return $formatedItems;
+    }
+
+    public function sumValue(): float
+    {
+        $amount = 0;
+        foreach ($this->collection as $item) {
+            $amount += $item->value;
+        }
+        return $amount;
     }
 }

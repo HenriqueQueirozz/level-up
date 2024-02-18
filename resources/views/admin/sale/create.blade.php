@@ -6,18 +6,18 @@
         <h2 class="page-title">Adicionar venda</h2>
     </section>
     <section class="form-section">
-        @if ($errors->any())
-            @foreach($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        @endif
+        @include('components.alert')
 
         <form action="{{ route('sale.store') }}" method="POST">
             @csrf
-            <input type="text" name="seller_id" placeholder="Nome">
-            <input type="text" name="value" placeholder="Valor da venda">
-            <input type="text" name="date" placeholder="Data da venda">
-            <button class="btn btn-primary" type="submit">Adicionar</button>
+            <select name="seller_id">
+            @foreach($sellers as $seller)
+                <option value="{{ $seller->id }}">{{ $seller->name }}</option>
+            @endforeach
+            </select>
+            <input type="numeric" name="value" placeholder="Valor da venda">
+            <input type="date" name="date" value="{{ date('Y-m-d') }}" placeholder="Data da venda">
+            <input type="submit" class="btn btn-primary" value="Adicionar">
         </form>
     </section>
 @endsection

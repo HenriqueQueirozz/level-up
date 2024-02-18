@@ -23,7 +23,13 @@
                     <td class="text-center">{{ $seller->email }}</td>
                     <td class="col-icon"><a href="{{ route('seller.show', $seller->id) }}"><button class="btn btn-blue"><ion-icon name="search-outline"></ion-icon></button></a></td>
                     <td class="col-icon"><a href="{{ route('seller.edit', $seller->id) }}"><button class="btn btn-yellow"><ion-icon name="color-wand-outline"></ion-icon></button></td>
-                    <td class="col-icon"><button class="btn btn-red" onclick="deleteSeller()"><ion-icon name="trash-outline"></ion-icon></button></td>
+                    <td class="col-icon">
+                        <form action="{{ route('seller.destroy', $seller->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-red" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

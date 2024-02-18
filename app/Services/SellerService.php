@@ -14,12 +14,12 @@ class SellerService
     {
     }
 
-    public function getAll()
+    public function getAll(): SellerPresenter
     {
         return new SellerPresenter($this->seller::All()); 
     }
 
-    public function getOne(string|int $id)
+    public function getOne(string|int $id): SellerPresenter|null
     {
         if (!$oneSeller = $this->seller::find($id)) {
             return null;
@@ -29,15 +29,15 @@ class SellerService
 
     public function store(CreateSellerDTO $data): void
     {
-        $this->seller::create($data);
+        $this->seller::create($data->toArray());
     }
 
-    public function update(array $data, string|int $id)
+    public function update(CreateSellerDTO $data, string|int $id): Seller|null
     {
         if (!$updateSeller = $this->seller::find($id)) {
             return null;
         }
-        $updateSeller->update($data);
+        $updateSeller->update($data->toArray());
         return $updateSeller;
     }
 

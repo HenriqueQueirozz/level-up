@@ -6,17 +6,13 @@
         <h2 class="page-title">Adicionar vendedor</h2>
     </section>
     <section class="form-section">
-        @if ($errors->any())
-            @foreach($errors->all() as $error)
-                {{ $error }}
-            @endforeach
-        @endif
+        @include('components.alert')
 
         <form action="{{ route('seller.store') }}" method="POST">
             @csrf
             <input type="text" name="name" placeholder="Nome">
             <input type="email" name="email" placeholder="E-mail">
-            <button class="btn btn-primary" type="submit">Adicionar</button>
+            <input type="submit" class="btn btn-primary" value="Adicionar">
         </form>
     </section>
 @endsection

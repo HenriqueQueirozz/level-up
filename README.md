@@ -37,7 +37,7 @@
     </ul>
     <h3>Banco de Dados (DER)</h3> 
     <p align="center">
-        <img src="public/assets/LevelUpDER.png" alt="Diagrama de Entidade e Relacionamento" />
+        <img src="public/assets/LevelUp - DER.png" alt="Diagrama de Entidade e Relacionamento" />
     </p>
 </div>
 <div id="prototipacao">
